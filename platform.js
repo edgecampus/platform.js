@@ -585,6 +585,10 @@
           '(?:Firefox|Minefield|NetFront)'
         ]);
       }
+      // detect IE 11
+      if (!version) {
+        version = ((RegExp('(?:rv:(\\d+(\\.\\d+)+))', 'i').exec(ua) || 0)[1]);
+      }
       // detect stubborn layout engines
       if (layout == 'iCab' && parseFloat(version) > 3) {
         layout = ['WebKit'];
